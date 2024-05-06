@@ -27,13 +27,10 @@
                     {{ auth()->user()->name}}
                   </p>
                   <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                    neil.sims@flowbite.com
+                  {{ auth()->user()->email}}
                   </p>
                 </div>
                 <ul class="py-1" role="none">
-                  <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
-                  </li>
                   <li>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
                   </li>
@@ -55,8 +52,8 @@
      <div class="h-full px-3 pb-4 overflow-y-auto  bg-blue-900 dark:bg-gray-800">
         <div class="flex flex-col items-center px-10 py-3">
            <img class="w-20 h-20 mb-3 rounded-full shadow-lg" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bonnie image"/>
-           <h5 class="mb-1 text-xl font-medium text-gray-100 dark:text-white">Alex Lastra</h5>
-           <span class="text-sm text-gray-400 dark:text-gray-100">Visual Designer</span>
+           <h5 class="mb-1 text-xl font-medium text-gray-100 dark:text-white">{{ auth()->user()->name}}</h5>
+           <span class="text-sm text-gray-400 dark:text-gray-100">{{ auth()->user()->email}}</span>
        </div>
         <ul class="space-y-2 font-medium mt-3">
            <li>
