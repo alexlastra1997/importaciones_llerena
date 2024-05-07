@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
@@ -31,6 +32,9 @@ Route::post('/', [LoginController::class,'store']);
 //registro
 Route::get('/register', [RegisterController::class,'index'])->name('register');
 Route::post('/register', [RegisterController::class,'store']);
+
+//Logout
+Route::post('/logout', [LogoutController::class,'store'])->name('logout');
 
 //---------Paginas---------------
 
