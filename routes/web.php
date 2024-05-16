@@ -41,13 +41,14 @@ Route::post('/logout', [LogoutController::class,'store'])->name('logout');
 //Dashboard
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
-//Perfiles
+//Perfil
 Route::get('/profile', [ProfileController::class,'index'])->name('profile');
 
-//Perfiles
+// Usuarios
 Route::get('/users', [UserController::class,'index'])->name('users');
+Route::get('/users/create', [UserController::class,'create'])->name('users.create');
 
-//Usuarios
+//Proveedores
 Route::get('/suppliers', [SuppliersController::class,'index'])->name('suppliers');
 
 //Productos
