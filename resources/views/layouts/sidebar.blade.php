@@ -82,7 +82,7 @@
                        class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg"> | Productos</a>
                  </li>
                  <li>
-                    <a href="#"
+                    <a href=""
                        class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">| Categorías</a>
                  </li>
               </ul>

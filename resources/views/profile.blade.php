@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="text-center mx-auto my-auto justify-center w-full  items-center">
-                            <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                            <h3 class="text-xl font-semibold leading-normal text-blueGray-700 mb-2">
                                 Jenna Stones
                             </h3>
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">

@@ -4,7 +4,7 @@
 
 <div class="p-4 sm:ml-64">
    <div class="rounded-lg dark:border-gray-700 mt-14">
-
+ 
       <!-- paginacion dashboard-->
       <nav class="flex mt-20 mb-8 mx-5" aria-label="Breadcrumb">
       <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">

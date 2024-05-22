@@ -51,13 +51,15 @@
                       </div>
                     </div>
                 </div> 
+                
                 <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+                @foreach($users as $user)
                     <div class="text-center text-gray-500 dark:text-gray-400">
                         <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar">
                         <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <a href="#">{{ auth()->user()->name}}</a>
+                            <a href="#">{{$user->name}}</a>
                         </h3>
-                        <p>CEO/Co-founder</p>
+                        <p>{{$user->email}}</p>
                         <div class="grid grid-cols-2 gap-4 m-2 justify-center items-center max-w-auto">
                             <button type="button" data-drawer-target="drawer-update-product" data-drawer-show="drawer-update-product" aria-controls="drawer-update-product" class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -74,7 +76,9 @@
                             </button>
                         </div>
                     </div>
-                </div>  
+                @endforeach
+                </div> 
+                
             </div>
         </section> 
     </div>

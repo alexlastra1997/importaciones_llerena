@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProductsController;
@@ -51,8 +54,12 @@ Route::get('/users/create', [UserController::class,'create'])->name('users.creat
 //Proveedores
 Route::get('/suppliers', [SuppliersController::class,'index'])->name('suppliers');
 
+//  Categorias
+Route::resource('categories', CategoryController::class);
+
 //Productos
 Route::get('/products', [ProductsController::class,'index'])->name('products');
 
-//Productos
+
+//Ventas
 Route::get('/sales', [SalesController::class,'index'])->name('sales');
