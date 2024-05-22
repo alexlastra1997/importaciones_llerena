@@ -74,16 +74,24 @@
                     <path stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-3 5h3m-6 0h.01M12 16h3m-6 0h.01M10 3v4h4V3h-4Z"/>
                   </svg>
                  <span class="flex-1 ml-3 text-left text-lg text-gray-200 hover:text-gray-700 whitespace-nowrap" sidebar-toggle-item>Inventario</span>
-                 <svg sidebar-toggle-item class="w-6 h-6" fill="gray" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                 <svg sidebar-toggle-item class="w-6 h-6" fill="gray" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                     <path 
+                        fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+                     </path>
+                  </svg>
               </button>
               <ul id="dropdown-example" class="hidden py-2 space-y-2">
                  <li>
                     <a href="{{ route('products') }}"
-                       class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg"> | Productos</a>
+                       class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">
+                        | Productos
+                     </a>
                  </li>
                  <li>
-                    <a href=""
-                       class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">| Categorías</a>
+                    <a href="{{ route('categories.index') }}"
+                       class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">
+                       | Categorías
+                     </a>
                  </li>
               </ul>
            </li>

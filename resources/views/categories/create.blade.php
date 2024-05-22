@@ -28,7 +28,7 @@
             </ol>
         </nav>
 
-        <div class="mx-auto max-w-screen-lg px-4 lg:px-12">  
+        <div class="mx-auto max-w-screen-lg xl:max-w-screen-2xl px-4 lg:px-12">  
             <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex-1 flex items-center space-x-2 my-10">
@@ -50,10 +50,24 @@
                     </div>
 
                     <div>
-                    <div>
-                        <label for="image">Imagen:</label>
-                        <input type="file" name="image" id="image">
-                    </div>
+                        <div>                    
+                            <label 
+                                class="block mb-2 text-md font-medium text-gray-900 dark:text-white" 
+                                for="image">
+                                Cambiar Imagen
+                            </label>
+                            <input 
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" 
+                                aria-describedby="file_input_help" 
+                                type="file" 
+                                name="image" 
+                                id="image"
+                            >
+                            <p 
+                                class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
+                                SVG, PNG, JPG or GIF (MAX. 800x400px).
+                            </p>    
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear Categoría</button>
