@@ -1,16 +1,15 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SalesController;
-use App\Http\Controllers\SuppliersController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,7 +51,7 @@ Route::get('/users', [UserController::class,'index'])->name('users');
 Route::get('/users/create', [UserController::class,'create'])->name('users.create');
 
 //Proveedores
-Route::get('/suppliers', [SuppliersController::class,'index'])->name('suppliers');
+Route::resource('suppliers', SupplierController::class);
 
 //  Categorias
 Route::resource('categories', CategoryController::class);
@@ -63,3 +62,6 @@ Route::get('/products', [ProductsController::class,'index'])->name('products');
 
 //Ventas
 Route::get('/sales', [SalesController::class,'index'])->name('sales');
+
+//Cliente
+Route::resource('clientes', ClienteController::class);

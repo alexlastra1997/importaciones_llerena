@@ -32,15 +32,15 @@
                 <div class="bg-white dark:bg-gray-800 relative sm:rounded-lg overflow-hidden shadow-2xl">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                         <div class="flex-1 flex items-center space-x-2">
-                            <h3 class="text-2xl font-semibold text-blue-900">Mis Proveedores</h3>
+                            <h3 class="text-2xl font-semibold text-blue-900">Mis Clientes</h3>
                         </div>
                                                 
                         <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                            <a href="{{ route('suppliers.create') }}" class="flex items-center justify-center text-white bg-lime-600 hover:bg-lime-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                            <a href="{{ route('clientes.create') }}" class="flex items-center justify-center text-white bg-lime-600 hover:bg-lime-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                                 <svg class="h-3.5 w-3.5 mr-1.5 -ml-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                 </svg>
-                                Crear Proveedor
+                                Crear Cliente
                             </a>
                         </div>
                     </div>
@@ -48,48 +48,44 @@
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="p-4">Empresa</th>
                                     <th scope="col" class="p-4">Nombre</th>
-                                    <th scope="col" class="p-4">Correo </th>
+                                    <th scope="col" class="p-4">Cédula o ruc</th>
                                     <th scope="col" class="p-4">Teléfono</th>
-                                    <th scope="col" class="p-4">País</th>
+                                    <th scope="col" class="p-4">Correo</th>
                                     <th scope="col" class="p-4">Dirección</th>
                                     <th scope="col" class="p-4">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($suppliers as $supplier)
+                            @foreach($clientes as $cliente)
                                 <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                                     <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center mr-3">
-                                        {{$supplier->empresa}}
+                                        {{$cliente->nombre}}
                                         </div>
                                     </th>
                                     <td class="px-4 py-3">
-                                    {{$supplier->nombre}}                                   
+                                    {{$cliente->documento_identificacion}}                                   
                                     </td>
                                     <td class="px-4 py-3">
-                                    {{$supplier->correo}}                                  
+                                    {{$cliente->numero_telefono}}                                  
                                     </td>
                                     <td class="px-4 py-3">
-                                    {{$supplier->telefono}}                                   
+                                    {{$cliente->correo}}                                   
                                     </td>
                                     <td class="px-4 py-3">
-                                    {{$supplier->pais}}                                  
-                                    </td>
-                                    <td class="px-4 py-3">
-                                    {{$supplier->direccion}}                                  
+                                    {{$cliente->direccion_vivienda}}                                  
                                     </td>
                                     <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center space-x-4">
-                                            <a href="{{ route('suppliers.edit', $supplier) }}" class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                            <a href="{{ route('clientes.edit', $cliente) }}" class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
                                                     <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
                                                 </svg>
                                                 Editar
                                             </a>
-                                            <form action="{{ route('suppliers.destroy', $supplier) }}" method="POST" class="my-2">
+                                            <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" class="my-2">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class=" py-2 px-3 space-x-4 flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center  ">
