@@ -5,7 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SalesController;
@@ -57,7 +57,7 @@ Route::resource('suppliers', SupplierController::class);
 Route::resource('categories', CategoryController::class);
 
 //Productos
-Route::get('/products', [ProductsController::class,'index'])->name('products');
+Route::resource('products', ProductController::class);
 
 
 //Ventas

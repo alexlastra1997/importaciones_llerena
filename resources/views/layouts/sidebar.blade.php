@@ -51,10 +51,16 @@
     </div>
   </nav>
   
-  <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-blue-900 border-r border-gray-300 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700 " aria-label="Sidebar">
+  <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-16 transition-transform -translate-x-full bg-blue-900 border-r border-gray-300 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700 " aria-label="Sidebar">
      <div class="h-full px-3 pb-4 overflow-y-auto  bg-blue-900 dark:bg-gray-800">
         <div class="flex flex-col items-center px-10 py-3">
-           <img class="w-20 h-20 mb-3 rounded-full shadow-lg" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bonnie image"/>
+        @php
+            $letra_nombre = auth()->user()->name;
+         @endphp
+
+         <div class="relative inline-flex items-center justify-center w-16 h-16 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+            <span class="font-medium text-gray-600 dark:text-gray-300 text-3xl flex justify-center items-center">{{ substr($letra_nombre, 0, 1)}}</span>
+         </div>
            <h5 class="mb-1 text-xl font-medium text-gray-100 dark:text-white">{{ auth()->user()->name}}</h5>
            <span class="text-sm text-gray-400 dark:text-gray-100">{{ auth()->user()->email}}</span>
        </div>
@@ -82,7 +88,7 @@
               </button>
               <ul id="dropdown-example" class="hidden py-2 space-y-2">
                  <li>
-                    <a href="{{ route('products') }}"
+                    <a href="{{ route('products.index')}}"
                        class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">
                         | Productos
                      </a>
