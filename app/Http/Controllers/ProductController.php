@@ -8,11 +8,22 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+   
     
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
-        return view('products', compact('products'));
+        $search = $request->input('search');
+
+    $products = Product::query()
+        ->when($search, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('descripcion', 'like', "%{$search}%")
+                      ->orWhere('codigo', 'like', "%{$search}%");
+            });
+        })
+        ->get();
+
+        return view('products', compact('products', 'search'));
     }
 
     public function create()
