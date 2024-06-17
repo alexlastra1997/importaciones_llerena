@@ -105,15 +105,17 @@
                                     <div id="apple-imac-27-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="apple-imac-27-dropdown-button">
                                             <li>
-                                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
+                                                <a href="{{ route('products.show', $product) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                                <a href="{{ route('products.edit', $product) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Editar</a>
                                             </li>
                                         </ul>
-                                        <div class="py-1">
-                                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                                        </div>
+                                        <form action="{{ route('products.destroy', $product) }}" method="POST" class="my-2">
+                                            @csrf
+                                            @method('DELETE')   
+                                                <button type="submit" class="block w-ful py-2 px-4 text-sm text-red-700 hover:bg-gray-100 " >Eliminar</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

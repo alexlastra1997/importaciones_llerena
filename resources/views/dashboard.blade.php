@@ -31,7 +31,7 @@
          <div class="flex flex-wrap -mx-3 items-center">
                <div class="w-full sm:w-1/2 md:w-2/4 px-3 text-left">
                   <div class="p-3 xl:px-5 md:py-4">
-                     <h3 class="text-2xl">Bienvenido Alex !</h3>
+                     <h3 class="text-2xl">Bienvenido/a {{ auth()->user()->name}} !</h3>
                      <h5 class="text-md mb-3">En que vamos a trabajar hoy?</h5>
                   </div>
                </div>
