@@ -47,7 +47,7 @@
                   </div>
                   <div class="flex flex-col flex-grow ml-4">
                      <div class="text-sm text-gray-500">Número de Clientes</div>
-                     <div class="font-bold text-lg">1259</div>
+                     <div class="font-bold text-lg">{{ $clientCount }}</div>
                   </div>
                </div>
 
@@ -67,7 +67,7 @@
                   </div>
                   <div class="flex flex-col flex-grow ml-4">
                      <div class="text-sm text-gray-500">Productos en Stock</div>
-                     <div class="font-bold text-lg">190</div>
+                     <div class="font-bold text-lg">{{ $productCount }}</div>
                   </div>
                </div>
 

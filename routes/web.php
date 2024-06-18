@@ -12,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,7 @@ Route::resource('products', ProductController::class);
 
 
 //Ventas
+Route::get('/venta', [VentaController::class,'index'])->name('venta');
 Route::get('/sales', [SalesController::class,'index'])->name('sales');
 
 //Cliente

@@ -15,9 +15,15 @@
         </div>
         <div class="flex items-center">
             <div class="flex items-center ms-3">
-              <div>
+               <a href="{{ route('cart.index') }}" class="flex mx-4 text-gray-300 rounded-xl  hover:text-gray-800  hover:bg-white ">
+                  <svg class="w-7 h-7 text-white-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                   </svg>                
+               </a>
+              <div>       
                 <button type="button" class="flex text-sm bg-gray-800 rounded-full ring-2 ring-white focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                   <span class="sr-only">Open user menu</span>
+                  
                   <div class="relative inline-flex items-center justify-center w-7 h-7 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                      <span class="font-medium text-gray-600 dark:text-gray-300">
                      @php
@@ -81,34 +87,15 @@
               </a>
            </li>
            <li>
-              <button type="button" class="flex items-center w-full p-3  font-sans transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                 <svg class="w-6 h-6 text-white-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-3 5h3m-6 0h.01M12 16h3m-6 0h.01M10 3v4h4V3h-4Z"/>
+               <a href="{{ route('products.index')}}" class="flex items-center p-3 text-gray-300 rounded-xl  dark:text-gray-400 hover:bg-white group-hover:text-blue-900 hover:text-gray-700 group">
+                  <svg class="w-6 h-6 text-white-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-3 5h3m-6 0h.01M12 16h3m-6 0h.01M10 3v4h4V3h-4Z"/>
                   </svg>
-                 <span class="flex-1 ml-3 text-left text-lg text-gray-200 hover:text-gray-700 whitespace-nowrap" sidebar-toggle-item>Inventario</span>
-                 <svg sidebar-toggle-item class="w-6 h-6" fill="gray" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                     <path 
-                        fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                     </path>
-                  </svg>
-              </button>
-              <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                 <li>
-                    <a href="{{ route('products.index')}}"
-                       class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">
-                        | Productos
-                     </a>
-                 </li>
-                 <li>
-                    <a href="{{ route('categories.index') }}"
-                       class="flex items-center w-full p-2 font-sans text-gray-300 hover:text-gray-700 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 text-lg">
-                       | Categorías
-                     </a>
-                 </li>
-              </ul>
-           </li>
+                  <span class="ms-3 text-lg font-sans">Mis Productos</span>
+               </a>
+            </li>
            <li>
-              <a href="{{ route('sales') }}" class="flex items-center p-3 text-gray-300 rounded-xl  dark:text-gray-400 hover:bg-white group-hover:text-blue-900 hover:text-gray-700 group">
+              <a href="{{ route('venta') }}" class="flex items-center p-3 text-gray-300 rounded-xl  dark:text-gray-400 hover:bg-white group-hover:text-blue-900 hover:text-gray-700 group">
                  <svg class="w-6 h-6 text-white-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
                   </svg>                
@@ -121,14 +108,6 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 .917 11.923A1 1 0 0 1 17.92 21H6.08a1 1 0 0 1-.997-1.077L6 8h12Z"/>
                   </svg>                
                  <span class="ms-3 text-lg">Compras</span>
-              </a>
-           </li>
-           <li>
-              <a href="#" class="flex items-center p-3 text-gray-300 rounded-xl  dark:text-gray-400 hover:bg-white group-hover:text-blue-900 hover:text-gray-700 group">
-                 <svg class="w-6 h-6 text-white-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 12v1h4v-1m4 7H6a1 1 0 0 1-1-1V9h14v9a1 1 0 0 1-1 1ZM4 5h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
-                  </svg>         
-                 <span class="ms-3 text-lg">Cotización</span>
               </a>
            </li>
            <li>
@@ -162,7 +141,7 @@
                  <svg class="w-6 h-6 text-white-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H6Zm7.25-2.095c.478-.86.75-1.85.75-2.905a5.973 5.973 0 0 0-.75-2.906 4 4 0 1 1 0 5.811ZM15.466 20c.34-.588.535-1.271.535-2v-1a5.978 5.978 0 0 0-1.528-4H18a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2h-4.535Z" clip-rule="evenodd"/>
                   </svg>                                                              
-                 <span class="ms-3 text-lg font-sans">Mis empleados</span>
+                 <span class="ms-3 text-lg font-sans">Mi Equipo</span>
               </a>
            </li>
         </ul>

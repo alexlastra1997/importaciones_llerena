@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,7 +12,10 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index () {
-        return view('dashboard');
+    public function index()
+    {
+        $productCount = Product::count();
+        $clientCount = Cliente::count();
+        return view('dashboard', compact('productCount'), compact('clientCount'));
     }
 }
