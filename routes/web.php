@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
@@ -65,3 +66,8 @@ Route::get('/sales', [SalesController::class,'index'])->name('sales');
 
 //Cliente
 Route::resource('clientes', ClienteController::class);
+
+//Carrito
+Route::post('cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');

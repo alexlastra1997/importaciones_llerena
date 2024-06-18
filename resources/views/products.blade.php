@@ -71,6 +71,7 @@
                                 <th scope="col" class="px-4 py-3">precio_2</th>
                                 <th scope="col" class="px-4 py-3">precio_3</th>
                                 <th scope="col" class="px-4 py-3">precio_4</th>
+                                <th scope="col" class="px-4 py-3">carrito</th>
                                 <th scope="col" class="px-4 py-3">Acciones</th>
                             </tr>
                         </thead>
@@ -90,12 +91,17 @@
                                         {{$product->categoria}}
                                     </div>
                                 </td>
-                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.47</td>
-                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.47</td>
-                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.47</td>
-                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.47</td>
-                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.47</td>
-
+                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->stock}}</td>
+                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->precio1}}</td>
+                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->precio2}}</td>
+                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->precio3}}</td>
+                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->precio4}}</td>
+                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <form action="{{ route('cart.add', $product->id) }}" method="POST" style="display:inline-block;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                                </form>
+                                </td>
                                 <td class="px-4 py-3 flex items-center justify-end">
                                     <button id="apple-imac-27-dropdown-button" data-dropdown-toggle="apple-imac-27-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
                                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
