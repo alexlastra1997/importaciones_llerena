@@ -50,7 +50,7 @@
                         </form>
                     </div>
                     <div class="overflow-x-auto mx-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5  gap-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5  gap-5">
 
                             @foreach($products as $product)
                             <div class="relative flex w-60 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-xl border-2 border-gray-50">
@@ -63,7 +63,7 @@
                                 <div class="p-6">
                                     <div class="mb-2 flex items-center justify-between">
                                             <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                                            Apple AirPods
+                                            {{$product->nombre}}
                                             </p>
                                             <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
                                                 ${{$product->precio1}}
@@ -76,10 +76,10 @@
                                         Catrgoría: {{$product->categoria}}
                                     </p>
                                 </div>
-                                <div class="p-6 pt-0">
+                                <div class="w-full mx-4">
                                     <form action="{{ route('cart.add', $product->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
-                                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Add to Cart</button>
                                     </form>   
                                 </div>
                               </div>

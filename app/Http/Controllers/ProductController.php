@@ -37,7 +37,7 @@ class ProductController extends Controller
             'codigo' => 'required|unique:products',
             'nombre' => 'required',
             'categoria' => 'required',
-            'imagen' => 'nullable|image',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'stock' => 'required|integer',
             'precio1' => 'required|numeric',
             'precio2' => 'required|numeric',
@@ -45,15 +45,13 @@ class ProductController extends Controller
             'precio4' => 'required|numeric',
             'descripcion' => 'nullable',
         ]);
-
         
-        $product = new Product($request->all());
-
         if ($request->hasFile('imagen')) {
-            $product->imagen = $request->file('imagen')->store('images', 'public');
+            $imagePath = $request->file('imagen')->store('products', 'public');
+            $validatedData['imagen'] = $imagePath;
         }
 
-        $product->save();
+        Product::create($validatedData);
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
@@ -74,7 +72,7 @@ class ProductController extends Controller
             'codigo' => 'required|unique:products,codigo,' . $product->id,
             'nombre' => 'required',
             'categoria' => 'required',
-            'imagen' => 'nullable|image',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'stock' => 'required|integer',
             'precio1' => 'required|numeric',
             'precio2' => 'required|numeric',
@@ -84,12 +82,13 @@ class ProductController extends Controller
         ]);
 
         if ($request->hasFile('imagen')) {
-            $path = $request->file('imagen')->store('public/images');
-            $validatedData['imagen'] = basename($path);
+            $imagePath = $request->file('imagen')->store('products', 'public');
+            $validatedData['imagen'] = $imagePath;
         }
 
         $product->update($validatedData);
-        return redirect()->route('products.index')->with('success', 'Producto actualizado exitosamente.');
+
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
     public function destroy(Product $product)
