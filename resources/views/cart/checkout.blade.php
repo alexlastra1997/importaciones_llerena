@@ -29,37 +29,21 @@
 
         <div class="mx-auto max-w-screen-lg xl:max-w-screen-2xl px-4 lg:px-12">  
                 
-        <h1>Shopping Cart</h1>
-    @if (session('success'))
-        <div>{{ session('success') }}</div>
-    @endif
-    @if (session('error'))
-        <div>{{ session('error') }}</div>
-    @endif
+   
+        <h1>Checkout</h1>
+        <h2>Customer: {{ $cliente->nombre }}</h2>
     <ul>
         @foreach ($cartItems as $item)
             <li>
-                {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }}
-                <form action="{{ route('cart.destroy', $item) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Remove</button>
-                </form>
+                {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }} = ${{ $item->quantity * $item->price }}
             </li>
         @endforeach
     </ul>
-
-    <form action="{{ route('cart.checkout') }}" method="GET">
+    <form action="{{ route('cart.completeCheckout') }}" method="POST">
         @csrf
-        <label for="cliente_id">Select Customer:</label>
-        <select name="cliente_id" id="cliente_id">
-            @foreach ($clientes as $cliente)
-                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
-            @endforeach
-        </select>
-        <button type="submit">Proceed to Checkout</button>
+        <input type="hidden" name="cliente_id" value="{{ $cliente->id }}">
+        <button type="submit">Complete Purchase</button>
     </form>
-    
 
 <!--Footer-->
 @extends('layouts.footer')

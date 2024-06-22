@@ -57,7 +57,7 @@
                   </div>
                   <div class="flex flex-col flex-grow ml-4">
                      <div class="text-sm text-gray-500">Ventas</div>
-                     <div class="font-bold text-lg">230</div>
+                     <div class="font-bold text-lg">{{ $totalOrders }}</div>
                   </div>
                </div>
 
@@ -77,7 +77,7 @@
                   </div>
                   <div class="flex flex-col flex-grow ml-4">
                      <div class="text-sm text-gray-500">Ganancias</div>
-                     <div class="font-bold text-lg">$ 32k</div>
+                     <div class="font-bold text-lg"> ${{ $totalSales }}</div>
                   </div>
                </div>
          </div>
@@ -122,112 +122,39 @@
          <!-- Lista de productos mas vendidos-->
          <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
             <h3 class="text-2xl font-semibold text-blue-900">Productos más comprados</h3>
-            <div class="relative overflow-x-auto">
-               <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                     <tr>
-                           <th scope="col" class="px-6 py-3">
-                              Product name
-                           </th>
-                           <th scope="col" class="px-6 py-3">
-                              Color
-                           </th>
-                           <th scope="col" class="px-6 py-3">
-                              Category
-                           </th>
-                           <th scope="col" class="px-6 py-3">
-                              Price
-                           </th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              Apple MacBook Pro 17"
-                           </th>
-                           <td class="px-6 py-4">
-                              Silver
-                           </td>
-                           <td class="px-6 py-4">
-                              Laptop
-                           </td>
-                           <td class="px-6 py-4">
-                              $2999
-                           </td>
-                     </tr>
-                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                           Silver
-                        </td>
-                        <td class="px-6 py-4">
-                           Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                           $2999
-                        </td>
-                     </tr>
-                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                           Silver
-                        </td>
-                        <td class="px-6 py-4">
-                           Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                           $2999
-                        </td>
-                     </tr>
-                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                           Silver
-                        </td>
-                        <td class="px-6 py-4">
-                           Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                           $2999
-                        </td>
-                     </tr>
-                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              Microsoft Surface Pro
-                           </th>
-                           <td class="px-6 py-4">
-                              White
-                           </td>
-                           <td class="px-6 py-4">
-                              Laptop PC
-                           </td>
-                           <td class="px-6 py-4">
-                              $1999
-                           </td>
-                     </tr>
-                     <tr class="bg-white dark:bg-gray-800">
-                           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              Magic Mouse 2
-                           </th>
-                           <td class="px-6 py-4">
-                              Black
-                           </td>
-                           <td class="px-6 py-4">
-                              Accessories
-                           </td>
-                           <td class="px-6 py-4">
-                              $99
-                           </td>
-                     </tr>
-                  </tbody>
-               </table>
+            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="p-8 rounded-t-lg" src="/docs/images/products/apple-watch.png" alt="product image" />
+    </a>
+    <div class="px-5 pb-5">
+        <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport</h5>
+        </a>
+        <div class="flex items-center mt-2.5 mb-5">
+            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
             </div>
+            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+        </div>
+    </div>
+</div>
          </div>
 
          <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
@@ -264,12 +191,34 @@
          </div>
 
          <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-            <div class="mb-12 space-y-4">
-                  <h3 class="text-2xl font-semibold text-purple-900">UX Design</h3>
-                  <p class="mb-6">Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.</p>
-                  <a href="#" class="block font-medium text-purple-600">Know more</a>
-            </div>
-            <img src="https://tailus.io/sources/blocks/end-image/preview/images/ux-design.svg" class="w-2/3 ml-auto " alt="illustration" loading="lazy" width="900" height="600">
+         <div>
+        <h2>Order Count</h2>
+        <p>Total Orders: {{ $orderCount }}</p>
+    </div>
+
+    @if ($product)
+        <div>
+            <h2>Most Sold Product</h2>
+            <p><strong>Product ID:</strong> {{ $product->id }}</p>
+            <p><strong>Code:</strong> {{ $product->codigo }}</p>
+            <p><strong>Name:</strong> {{ $product->nombre }}</p>
+            <p><strong>Category:</strong> {{ $product->categoria }}</p>
+            <p><strong>Description:</strong> {{ $product->descripcion }}</p>
+            <p><strong>Stock:</strong> {{ $product->stock }}</p>
+            <p><strong>Price 1:</strong> $ {{ $product->precio1 }}</p>
+            <p><strong>Price 2:</strong> $ {{ $product->precio2 }}</p>
+            <p><strong>Price 3:</strong> $ {{ $product->precio3 }}</p>
+            <p><strong>Price 4:</strong> $ {{ $product->precio4 }}</p>
+            @if ($product->imagen)
+                <p><strong>Image:</strong></p>
+                <img src="{{ asset('storage/' . $product->imagen) }}" alt="{{ $product->nombre }}" style="max-width: 200px;">
+            @endif
+        </div>
+    @else
+        <p>No sales yet.</p>
+    @endif
+
+    
          </div>
       </div>
        
