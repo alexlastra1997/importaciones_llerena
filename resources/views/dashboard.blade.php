@@ -85,132 +85,115 @@
  
       <!-- End Third Row -->
 
-      <div class="mx-auto grid grid-cols-1 gap-6 xl:grid-cols-3 m-4">
+      <div class="mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3 m-4">
          <!-- chart ventas por mes-->
          <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
             <h3 class="text-2xl font-semibold text-blue-900">Ganancias Totales en los útimos 4 meses</h3>
              
             <div class="container">
                 
-                <canvas id="ordersChart"></canvas>
+               <div class="col-md-6">
+                  <canvas id="totalSumChart"></canvas>
+              </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                  var ctx = document.getElementById('ordersChart').getContext('2d');
-                  var ordersChart = new Chart(ctx, {
-                     type: 'bar',
-                     data: {
-                        labels: {!! json_encode($months) !!},
-                        datasets: [{
-                              label: 'Ganancias',
-                              data: {!! json_encode($totals) !!},
-                              backgroundColor: [
-                              'rgba(255, 99, 132, 0.2)',
-                              'rgba(255, 159, 64, 0.2)',
-                              'rgba(255, 205, 86, 0.2)',
-                              'rgba(75, 192, 192, 0.2)'
-                              
-                           ],
-                           borderColor: [
-                              'rgb(255, 99, 132)',
-                              'rgb(255, 159, 64)',
-                              'rgb(255, 205, 86)',
-                              'rgb(75, 192, 192)'
-                              
-                           ],
-                              borderWidth: 2
-                        }]
-                     },
-                     options: {
-                        scales: {
-                              y: {
-                                 beginAtZero: true
-                              }
-                        }
-                     }
-                  });
-            </script>
- 
+            
          </div>
          <!-- Lista de productos mas vendidos-->
          <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-            <h3 class="text-2xl font-semibold text-blue-900">Productos más comprados</h3>
-            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-               <a href="#">
-                  <img class="p-8 rounded-t-lg" src="/docs/images/products/apple-watch.png" alt="product image" />
-               </a>
-               <div class="px-5 pb-5">
-                  <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport</h5>
-                  </a>
-                  <div class="flex items-center mt-2.5 mb-5">
-                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                           <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                           </svg>
-                           <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                           </svg>
-                           <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                           </svg>
-                           <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                           </svg>
-                           <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                           </svg>
-                        </div>
-                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
+            <h3 class="text-2xl font-semibold text-blue-900">Número de ventas en los útimos 4 meses </h3>
+            <div class="col-md-6">
+               <canvas id="totalCountChart"></canvas>
+           </div>
+         </div>
+
+         <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
+            <h3 class="text-2xl font-semibold text-blue-900">Producto más vendido</h3>
+            <div class=" grid grid-cols-2 gap">
+               <div class=" flex items-end overflow-hidden rounded-xl">
+                  @if ($product->imagen)
+                     <img src="{{ asset('storage/' . $product->imagen) }}" alt="{{ $product->nombre }}" style="max-width: 200px;">
+                  @endif               
+               </div>
+      
+               <div class="mt-1 p-2">
+                  @if ($product)
+                  <div>
+                     
+                     <p><strong>Código:</strong> {{ $product->codigo }}</p>
+                     <p><strong>Nombre:</strong> {{ $product->nombre }}</p>
+                     <p><strong>Categoría:</strong> {{ $product->categoria }}</p>
+                     <p><strong>Total de órdenes:</strong> {{ $orderCount }}</p>
+                     <p><strong>Stock:</strong> {{ $product->stock }}</p>
+                     <p><strong>Precio Unidad:</strong> $ {{ $product->precio1 }}</p>
+         
                   </div>
-                  <div class="flex items-center justify-between">
-                        <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-                  </div>
+                  @else
+                        <p>No sales yet.</p>
+                  @endif
+               
                </div>
             </div>
          </div>
-
-         <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-            <h3 class="text-2xl font-semibold text-blue-900">Productos más comprados</h3>
-            
-               
-            
-         </div>
-
-         <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-         <div>
-        <h2>Order Count</h2>
-        <p>Total Orders: {{ $orderCount }}</p>
+      </div>     
     </div>
-
-    @if ($product)
-        <div>
-            <h2>Most Sold Product</h2>
-            <p><strong>Product ID:</strong> {{ $product->id }}</p>
-            <p><strong>Code:</strong> {{ $product->codigo }}</p>
-            <p><strong>Name:</strong> {{ $product->nombre }}</p>
-            <p><strong>Category:</strong> {{ $product->categoria }}</p>
-            <p><strong>Description:</strong> {{ $product->descripcion }}</p>
-            <p><strong>Stock:</strong> {{ $product->stock }}</p>
-            <p><strong>Price 1:</strong> $ {{ $product->precio1 }}</p>
-            <p><strong>Price 2:</strong> $ {{ $product->precio2 }}</p>
-            <p><strong>Price 3:</strong> $ {{ $product->precio3 }}</p>
-            <p><strong>Price 4:</strong> $ {{ $product->precio4 }}</p>
-            @if ($product->imagen)
-                <p><strong>Image:</strong></p>
-                <img src="{{ asset('storage/' . $product->imagen) }}" alt="{{ $product->nombre }}" style="max-width: 200px;">
-            @endif
-        </div>
-    @else
-        <p>No sales yet.</p>
-    @endif
-
-    
-         </div>
-      </div>
        
    </div>
 </div>
 
+<div class="row">
+   
+   
+</div>
+
 <!--Footer-->
 @extends('layouts.footer')
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const months = @json($months);
+    const totals = @json($totals);
+    const counts = @json($counts);
+
+    const totalSumChart = new Chart(document.getElementById('totalSumChart'), {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Ganancias Totales ($)',
+                data: totals,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const totalCountChart = new Chart(document.getElementById('totalCountChart'), {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Número de ventas',
+                data: counts,
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

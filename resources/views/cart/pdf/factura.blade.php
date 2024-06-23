@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-<h1>hoila</h1>
-    
-</body>
+<html lang="es">
+ <head>
+  <title>Factura</title>
+  <link rel="stylesheet" href="factura.css" >
+ </head>
+ <body>
+  <h1>Factura</h1>
+  <table>
+   <tr>
+    <th>Producto</th>
+    <th>Precio</th>
+    <th>Cantidad</th>
+    <th>Total</th>
+   </tr>
+   <tr>
+    <td>Tijeras</td>
+    <td>7</td>
+    <td>3</td>
+    <td>21</td>
+   </tr>
+   <tr>
+    <td>Tijeras</td>
+    <td>7</td>
+    <td>3</td>
+    <td>21</td>
+   </tr>
+   <tr>
+    <td>Bolígrafo</td>
+    <td>2</td>
+    <td>5</td>
+    <td>10</td>
+   </tr>
+   <tr>
+    <td>Grapadora</td>
+    <td>20</td>
+    <td>2</td>
+    <td>40</td>
+   </tr>
+   <tr>
+    <td>Carpeta</td>
+    <td>5</td>
+    <td>40</td>
+    <td>200</td>
+   </tr>
+   <tr>
+    <td colspan="3">Subtotal</td>
+	<td>250</td>
+   </tr> 
+   <tr>
+    <td colspan="3">Gastos de envío</td>
+	<td>5</td>
+   </tr> 
+   <tr>
+    <td colspan="3">Precio total</td>
+	<td>255</td>
+   </tr> 
+  </table>
+ </body>
 </html>

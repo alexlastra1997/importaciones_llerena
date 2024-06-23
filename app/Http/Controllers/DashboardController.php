@@ -38,28 +38,32 @@ class DashboardController extends Controller
             $product = Product::find($mostSoldProduct->product_id);
         }
 
+        $startDate = Carbon::now()->subMonths(4)->startOfMonth();
+        $endDate = Carbon::now()->endOfMonth();
 
-        // Obtener la fecha actual
-        $now = Carbon::now();
-        
-        // Calcular los totales por mes para los últimos 4 meses
         $orders = DB::table('orders')
-            ->select(DB::raw('SUM(total) as total'), DB::raw('MONTH(created_at) as month'))
-            ->where('created_at', '>=', $now->subMonths(4))
-            ->groupBy(DB::raw('MONTH(created_at)'))
-            ->orderBy('month', 'asc')
+            ->select(
+                DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'),
+                DB::raw('SUM(total) as total_sum'),
+                DB::raw('COUNT(*) as total_count')
+            )
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->groupBy('month')
+            ->orderBy('month')
             ->get();
 
-        // Preparar los datos para Chart.js
         $months = [];
         $totals = [];
+        $counts = [];
+
         foreach ($orders as $order) {
-            $months[] = Carbon::create()->month($order->month)->format('F');
-            $totals[] = $order->total;
+            $months[] = $order->month;
+            $totals[] = $order->total_sum;
+            $counts[] = $order->total_count;
         }
         
 
         
-        return view('dashboard', compact('productCount', 'clientCount', 'totalOrders', 'totalSales' ,'orderCount', 'product','months','totals'));
+        return view('dashboard', compact('productCount', 'clientCount', 'totalOrders', 'totalSales' ,'orderCount', 'product','months','totals', 'counts'));
     }
 }
