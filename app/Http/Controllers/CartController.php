@@ -35,7 +35,7 @@ class CartController extends Controller
 
         CartItem::create($validatedData);
 
-        return redirect()->route('cart.index')->with('success', 'Product added to cart.');
+        return redirect()->route('sales')->with('success', 'Product added to cart.');
     }
 
     public function destroy(CartItem $cartItem)
