@@ -75,3 +75,5 @@ Route::post('cart', [CartController::class, 'store'])->name('cart.store');
 Route::delete('cart/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 Route::post('checkout', [CartController::class, 'completeCheckout'])->name('cart.completeCheckout');
+Route::get('cart/invoice/{order}', [CartController::class, 'invoice'])->name('cart.invoice');
+Route::get('cart/invoice/{order}/download', [CartController::class, 'downloadInvoice'])->name('cart.downloadInvoice');

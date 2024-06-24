@@ -89,9 +89,9 @@
                                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Precio</label>
                                     <select name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         <option selected value="{{ $product->precio1 }}">{{ $product->precio1 }}</option>
-                                        <option value="{{ $product->precio1 }}">{{ $product->precio1 }}</option>
-                                        <option value="{{ $product->precio1 }}">{{ $product->precio1 }}</option>
-                                        <option value="{{ $product->precio1 }}">{{ $product->precio1 }}</option>
+                                        <option value="{{ $product->precio2 }}">{{ $product->precio2 }}</option>
+                                        <option value="{{ $product->precio3 }}">{{ $product->precio3 }}</option>
+                                        <option value="{{ $product->precio4 }}">{{ $product->precio4 }}</option>
                                     </select>
     
                                 </ul>

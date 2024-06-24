@@ -16,7 +16,7 @@ class CartController extends Controller
     {
         $cartItems = CartItem::with('product')->whereNull('order_id')->get();
         $clientes = Cliente::all();
-        return view('cart.index', compact('cartItems', 'clientes'));
+        return view('cart.index', compact('cartItems','clientes'));
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class CartController extends Controller
 
         CartItem::create($validatedData);
 
-        return redirect()->route('sales')->with('success', 'Product added to cart.');
+        return redirect()->route('cart.index')->with('success', 'Product added to cart.');
     }
 
     public function destroy(CartItem $cartItem)
@@ -44,40 +44,66 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Product removed from cart.');
     }
 
-    public function checkout(Request $request)
+    public function checkout()
     {
         $cartItems = CartItem::with('product')->whereNull('order_id')->get();
-        $cliente = Cliente::find($request->cliente_id);
-        return view('cart.checkout', compact('cartItems', 'cliente'));
+        $clientes = Cliente::all();
+        return view('cart.checkout', compact('cartItems', 'clientes'));
     }
 
     public function completeCheckout(Request $request)
     {
-        DB::transaction(function () use ($request) {
+        $validatedData = $request->validate([
+            'cliente_id' => 'required|exists:clientes,id',
+            'shipping_cost' => 'required|numeric',
+        ]);
+
+        $cliente = Cliente::find($validatedData['cliente_id']);
+        $shippingCost = $validatedData['shipping_cost'];
+
+        $order = DB::transaction(function () use ($cliente, $shippingCost) {
             $cartItems = CartItem::with('product')->whereNull('order_id')->get();
-            $total = $cartItems->sum(function ($cartItem) {
+
+            $subtotal = $cartItems->sum(function ($cartItem) {
                 return $cartItem->price * $cartItem->quantity;
             });
-    
+
+            $iva = $subtotal * 0.15;
+            $total = $subtotal + $iva + $shippingCost;
+
             $order = Order::create([
-                'cliente_id' => $request->cliente_id,
-                'total' => $total
+                'total' => $total,
+                'cliente_id' => $cliente->id,
+                'shipping_cost' => $shippingCost,
             ]);
-    
+
             foreach ($cartItems as $cartItem) {
                 $product = $cartItem->product;
                 $product->stock -= $cartItem->quantity;
                 $product->save();
-    
+
                 $cartItem->order_id = $order->id;
                 $cartItem->save();
             }
+
+            return $order;
         });
-        $data=0;
-        $pdf = Pdf::loadView('cart.pdf.factura');
-        return response()->streamDownload(function () use ($pdf) {
-            echo $pdf->stream();
-        },'factura.pdf');
-        //return redirect()->route('products.index')->with('success', 'Purchase completed successfully.');
+
+        return redirect()->route('cart.invoice', ['order' => $order->id]);
+    }
+
+    public function invoice(Order $order)
+    {
+        $order->load('items.product', 'cliente');
+        return view('cart.invoice', compact('order'));
+    }
+
+    public function downloadInvoice(Order $order)
+    {
+        $order->load('items.product', 'cliente');
+
+        $pdf = Pdf::loadView('cart.invoice-pdf', compact('order'));
+
+        return $pdf->download('invoice.pdf');
     }
 }

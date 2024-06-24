@@ -27,38 +27,38 @@
             </ol>
         </nav>
 
-        <div class="mx-auto max-w-screen-lg xl:max-w-screen-2xl px-4 lg:px-12">  
-                
-            <h1>Shopping Cart</h1>
-            @if (session('success'))
-                <div>{{ session('success') }}</div>
-            @endif
-            @if (session('error'))
-                <div>{{ session('error') }}</div>
-            @endif
-            <ul>
-                @foreach ($cartItems as $item)
-                    <li>
-                        {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }}
-                        <form action="{{ route('cart.destroy', $item) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Remove</button>
-                        </form>
-                    </li>
-                @endforeach
-            </ul>
+        <div class="mx-auto max-w-screen-lg xl:max-w-screen-2xl px-4 lg:px-12"> 
+            
+        <h1>Invoice</h1>
+    <h2>Client: {{ $order->cliente->nombre }}</h2>
+    <p>Email: {{ $order->cliente->email }}</p>
+    <p>Phone: {{ $order->cliente->telefono }}</p>
 
-            <form action="{{ route('cart.checkout') }}" method="GET">
-                @csrf
-                <label for="cliente_id">Select Customer:</label>
-                <select name="cliente_id" id="cliente_id">
-                    @foreach ($clientes as $cliente)
-                        <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
-                    @endforeach
-                </select>
-                <button type="submit">Proceed to Checkout</button>
-            </form>
+    <h3>Order Details</h3>
+    <ul>
+        @foreach ($order->items as $item)
+            <li>
+                {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }} = ${{ $item->quantity * $item->price }}
+            </li>
+        @endforeach
+    </ul>
+
+    @php
+        $subtotal = $order->items->sum(function ($item) {
+            return $item->price * $item->quantity;
+        });
+        $iva = $subtotal * 0.15;
+    @endphp
+
+    <p>Subtotal: ${{ number_format($subtotal, 2) }}</p>
+    <p>IVA (15%): ${{ number_format($iva, 2) }}</p>
+    <p>Shipping Cost: ${{ number_format($order->shipping_cost, 2) }}</p>
+    <h3>Total: ${{ number_format($order->total, 2) }}</h3>
+
+    <a href="{{ route('cart.downloadInvoice', ['order' => $order->id]) }}" class="btn btn-primary">Download PDF</a>
+    <a href="{{ route('products.index') }}" class="btn btn-secondary">Back to Products</a>
+                
+        
         </div>    
     </div>
 </div>

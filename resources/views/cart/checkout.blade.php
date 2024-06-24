@@ -30,20 +30,55 @@
         <div class="mx-auto max-w-screen-lg xl:max-w-screen-2xl px-4 lg:px-12">  
                 
    
-        <h1>Checkout</h1>
-        <h2>Customer: {{ $cliente->nombre }}</h2>
-    <ul>
-        @foreach ($cartItems as $item)
-            <li>
-                {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }} = ${{ $item->quantity * $item->price }}
-            </li>
-        @endforeach
-    </ul>
+
+    <h1>Checkout</h1>
     <form action="{{ route('cart.completeCheckout') }}" method="POST">
         @csrf
-        <input type="hidden" name="cliente_id" value="{{ $cliente->id }}">
+        <div>
+            <label for="cliente_id">Select Client:</label>
+            <select name="cliente_id" id="cliente_id">
+                @foreach ($clientes as $cliente)
+                    <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
+            <label for="shipping_cost">Shipping Cost:</label>
+            <input type="number" name="shipping_cost" id="shipping_cost" step="0.01" required>
+        </div>
+        <ul>
+            @foreach ($cartItems as $item)
+                <li>
+                    {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }} = ${{ $item->quantity * $item->price }}
+                </li>
+            @endforeach
+        </ul>
+        @php
+            $subtotal = $cartItems->sum(function ($item) {
+                return $item->price * $item->quantity;
+            });
+            $iva = $subtotal * 0.15;
+        @endphp
+        <div>
+            <p>Subtotal: ${{ number_format($subtotal, 2) }}</p>
+            <p>IVA (15%): ${{ number_format($iva, 2) }}</p>
+            <p>Total + Shipping: $<span id="total">{{ number_format($subtotal + $iva, 2) }}</span></p>
+        </div>
         <button type="submit">Complete Purchase</button>
     </form>
+    <script>
+        document.getElementById('shipping_cost').addEventListener('input', function() {
+            let subtotal = {{ $subtotal }};
+            let iva = {{ $iva }};
+            let shippingCost = parseFloat(this.value) || 0;
+            let total = subtotal + iva + shippingCost;
+            document.getElementById('total').innerText = total.toFixed(2);
+        });
+    </script>
+
+        </div>    
+    </div>
+</div>
 
 <!--Footer-->
 @extends('layouts.footer')
