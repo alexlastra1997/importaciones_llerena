@@ -26,6 +26,21 @@
             </ol>
         </nav>
 
+        <div id="alert-additional-content-1" class="p-4 mb-4 text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+            <div class="flex items-center">
+                    <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <h3 class="text-lg font-medium">Información: Módulo Ventas</h3>
+            </div>
+            <ul class="mt-1.5 list-disc list-inside mx-5">
+                <li>Hacer una Venta: Realiza un venta real de tus productos y emite factura a tus clientes.</li>
+                <li>Cotización: Simula uan venta para birndar una cotización de precios a tus clientes.</li>
+                <li>Historial de Ventas: Organiza y vizualiza tus ventas en tiempo real.</li>
+            </ul>
+        </div>
+
         <div class="mx-auto  max-w-screen-lg xl:max-w-screen-2xl px-4 lg:px-12">
             <!-- Start block -->
             <div class="mx-auto  max-w-screen-lg xl:max-w-screen-2xl px-8">

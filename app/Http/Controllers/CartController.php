@@ -15,8 +15,8 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = CartItem::with('product')->whereNull('order_id')->get();
-        $clientes = Cliente::all();
-        return view('cart.index', compact('cartItems','clientes'));
+        
+        return view('cart.index', compact('cartItems'));
     }
 
     public function store(Request $request)
@@ -35,13 +35,13 @@ class CartController extends Controller
 
         CartItem::create($validatedData);
 
-        return redirect()->route('cart.index')->with('success', 'Product added to cart.');
+        return redirect()->route('sales')->with('success', 'Producto añadido al carrito con éxito');
     }
 
     public function destroy(CartItem $cartItem)
     {
         $cartItem->delete();
-        return redirect()->route('cart.index')->with('success', 'Product removed from cart.');
+        return redirect()->route('cart.index')->with('success', 'Producto removido del carrito con exito.');
     }
 
     public function checkout()
