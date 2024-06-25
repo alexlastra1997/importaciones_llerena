@@ -33,7 +33,7 @@
                     Confirmación de Venta
                 </li>
             </ol>
-         </div>
+        </div>
         
 
         <div class="mx-auto max-w-screen-lg xl:max-w-screen-xl px-4 lg:px-12">         
