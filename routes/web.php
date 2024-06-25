@@ -6,7 +6,9 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductSupplyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SalesController;
@@ -77,3 +79,13 @@ Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout
 Route::post('checkout', [CartController::class, 'completeCheckout'])->name('cart.completeCheckout');
 Route::get('cart/invoice/{order}', [CartController::class, 'invoice'])->name('cart.invoice');
 Route::get('cart/invoice/{order}/download', [CartController::class, 'downloadInvoice'])->name('cart.downloadInvoice');
+
+//Devoluciones
+
+Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::post('orders/refund', [OrderController::class, 'refund'])->name('orders.refund');
+
+//reabastecimiento
+Route::get('products/supply', [ProductSupplyController::class, 'index'])->name('products.supply');
+Route::post('products/supply', [ProductSupplyController::class, 'updateStock'])->name('products.updateStock');
