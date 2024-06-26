@@ -89,3 +89,22 @@ Route::post('orders/refund', [OrderController::class, 'refund'])->name('orders.r
 //reabastecimiento
 Route::get('supply', [ProductSupplyController::class, 'index'])->name('supply.index');
 Route::post('supply/add', [ProductSupplyController::class, 'updateStock'])->name('supply.updateStock');
+
+//Roles de usuario
+
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::resource('users', UserController::class);
+});
+
+Route::group(['middleware' => ['role:bodega']], function () {
+    Route::get('products/supply', [ProductSupplyController::class, 'index'])->name('products.supply');
+    Route::post('products/supply', [ProductSupplyController::class, 'updateStock'])->name('products.updateStock');
+});
+
+Route::group(['middleware' => ['role:ventas']], function () {
+    // Rutas para ventas
+});
+
+Route::group(['middleware' => ['role:contador']], function () {
+    // Rutas para contador
+});
