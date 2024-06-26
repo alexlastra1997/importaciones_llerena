@@ -10,7 +10,7 @@ class ProductSupplyController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.supply', compact('products'));
+        return view('supply.index', compact('products'));
     }
 
     public function updateStock(Request $request)
@@ -24,6 +24,6 @@ class ProductSupplyController extends Controller
         $product->stock += $validatedData['quantity'];
         $product->save();
 
-        return redirect()->route('products.supply')->with('success', 'Product stock updated successfully.');
+        return redirect()->route('supply.index')->with('success', 'Product stock updated successfully.');
     }
 }

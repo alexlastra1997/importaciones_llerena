@@ -87,5 +87,5 @@ Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.sho
 Route::post('orders/refund', [OrderController::class, 'refund'])->name('orders.refund');
 
 //reabastecimiento
-Route::get('products/supply', [ProductSupplyController::class, 'index'])->name('products.supply');
-Route::post('products/supply', [ProductSupplyController::class, 'updateStock'])->name('products.updateStock');
+Route::get('supply', [ProductSupplyController::class, 'index'])->name('supply.index');
+Route::post('supply/add', [ProductSupplyController::class, 'updateStock'])->name('supply.updateStock');

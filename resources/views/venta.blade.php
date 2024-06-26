@@ -77,7 +77,7 @@
                             <h3 class="text-center">
                                 <a class="text-white text-2xl font-bold text-center" href="">
                                     <span class="absolute inset-0"></span>
-                                    Hirtorial de Ventas
+                                    Historial de Ventas
                                 </a>
                             </h3>
                         </div>

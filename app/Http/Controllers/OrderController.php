@@ -12,7 +12,7 @@ class OrderController extends Controller
     {
         // Aquí puedes listar todas las órdenes
         $orders = Order::all();
-        return view('orders.index', compact('orders'));
+        
     }
 
     public function show(Order $order)

@@ -38,7 +38,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('products.updateStock') }}" method="POST">
+            <form action="{{ route('supply.updateStock') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="product_id">Select Product:</label>
