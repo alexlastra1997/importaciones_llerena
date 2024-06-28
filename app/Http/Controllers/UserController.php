@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    
     public function index () {
         $users = User::all();
         $roles = Role::all();
@@ -28,5 +29,13 @@ class UserController extends Controller
     {
         $user->syncRoles($request->roles);
         return redirect()->route('users.index')->with('success', 'User roles updated successfully.');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('users.index')
+                        ->with('success', 'Proveedor eliminado con éxito.');
     }
 }
