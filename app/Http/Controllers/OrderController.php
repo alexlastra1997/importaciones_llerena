@@ -9,11 +9,22 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
+    public function index(Request $request)
+    {       
+        
+        $search = $request->input('search');
+
+        $orders = Order::query()
+        ->when($search, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('id', 'like', "%{$search}%")
+                      ->orWhere('total', 'like', "%{$search}%");
+            });
+        })
+        ->get();
         // Aquí puedes listar todas las órdenes
-        $orders = Order::all();
-        return view('orders.index', compact('orders'));
+       
+        return view('orders.index', compact('orders', 'search'));
     }
 
     public function show(Order $order)

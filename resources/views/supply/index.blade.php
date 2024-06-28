@@ -57,46 +57,35 @@
                     </div>
                     
                 @endif
-
-
+                
                 <form action="{{ route('supply.updateStock') }}" method="POST">
-                @csrf
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 m-6">
+                        <div>
+                            <label for="product_id"class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                            <select name="product_id" id="product_id" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Selecciona el producto</option>
+                                @foreach($products as $product)
+                                    <option value="{{ $product->id }}">{{$product->codigo }} -  {{$product->nombre }}</option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
 
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 m-6">
-                    <div>
-                        <label for="product_id"class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-                        <select name="product_id" id="product_id" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Selecciona el producto</option>
-                            @foreach($products as $product)
-                                <option value="{{ $product->id }}">{{$product->codigo }} -  {{$product->nombre }}</option>
-                            @endforeach
-                            
-                        </select>
+                        <div>
+                            <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad</label>
+                            <input type="number" id="first_name" type="number" name="quantity" id="quantity"  min="1" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Coloque la cantidad que desea añadir al producto" required />
+                        </div>
                     </div>
-
-                    <div>
-                        <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad</label>
-                        <input type="number" id="first_name" type="number" name="quantity" id="quantity"  min="1" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Coloque la cantidad que desea añadir al producto" required />
-                    </div>
-                </div>
-                
-                   
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 m-6">
-                    <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 8H4m8 3.5v5M9.5 14h5M4 6v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5.032a1 1 0 0 1-.768-.36l-1.9-2.28a1 1 0 0 0-.768-.36H5a1 1 0 0 0-1 1Z"/>
-                    </svg>
-                    Actualizar stock
-                </button>
-            </form>
-
-                
-    
-            </div>
-            
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 m-6">
+                        <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 8H4m8 3.5v5M9.5 14h5M4 6v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5.032a1 1 0 0 1-.768-.36l-1.9-2.28a1 1 0 0 0-.768-.36H5a1 1 0 0 0-1 1Z"/>
+                        </svg>
+                        Actualizar stock
+                    </button>
+                </form>
+            </div>          
         </div> 
-       
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     </div>
 </div>

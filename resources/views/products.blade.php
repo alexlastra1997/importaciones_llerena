@@ -44,7 +44,7 @@
 
                 </div>
 
-                <div class="mx-5 w-1/2">
+                <div class="mx-2 w-full md:w-2/3 lg:w-1/2">
                     <form method="GET" action="{{ route('products.index') }}">
                         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div class="relative">
@@ -77,7 +77,7 @@
                                 <td class="px-4 py-2">
                                     <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">{{$product->codigo}}</span>
                                 </td>
-                                <td scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <td scope="row" class="flex flex-wrap items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img src="{{ asset('storage/' . $product->imagen) }}" alt="product image"  class="w-14 h-14 rounded-xl">
                                     {{$product->nombre}}
                                 </td>

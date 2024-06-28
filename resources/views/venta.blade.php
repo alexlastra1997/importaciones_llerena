@@ -36,7 +36,7 @@
             </div>
             <ul class="mt-1.5 list-disc list-inside mx-5">
                 <li>Hacer una Venta: Realiza un venta real de tus productos y emite factura a tus clientes.</li>
-                <li>Cotización: Simula uan venta para birndar una cotización de precios a tus clientes.</li>
+                <li>Cotización: Simula una venta para birndar una cotización de precios a tus clientes.</li>
                 <li>Historial de Ventas: Organiza y vizualiza tus ventas en tiempo real.</li>
             </ul>
         </div>
