@@ -85,6 +85,8 @@ Route::get('cart/invoice/{order}/download', [CartController::class, 'downloadInv
 Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 Route::post('orders/refund', [OrderController::class, 'refund'])->name('orders.refund');
+Route::get('orders/{order}/download', [OrderController::class, 'downloadInvoice'])->name('orders.downloadInvoice');
+
 
 //reabastecimiento
 Route::get('supply', [ProductSupplyController::class, 'index'])->name('supply.index');

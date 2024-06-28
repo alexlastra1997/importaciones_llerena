@@ -41,6 +41,7 @@
 
     <h3>Order Items</h3>
     <ul>
+        <li>Número de orden: PVG{{ str_pad($order->id, 7, '0', STR_PAD_LEFT) }}</li>
         @foreach ($order->items as $item)
             <li>
                 {{ $item->product->nombre }} - {{ $item->quantity }} x ${{ $item->price }} = ${{ $item->quantity * $item->price }}
@@ -64,6 +65,8 @@
     </form>
 
     <a href="{{ route('orders.index') }}">Back to Orders</a>
+    <a href="{{ route('orders.downloadInvoice', ['order' => $order->id]) }}" class="btn btn-primary">Download PDF</a>
+
 
 
                 

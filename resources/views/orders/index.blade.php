@@ -48,7 +48,7 @@
         <tbody>
             @foreach($orders as $order)
                 <tr>
-                    <td>{{ $order->id }}</td>
+                    <td>PVG{{ str_pad($order->id, 7, '0', STR_PAD_LEFT) }}</td>
                     <td>{{ $order->cliente->nombre }}</td>
                     <td>${{ number_format($order->total, 2) }}</td>
                     <td>
