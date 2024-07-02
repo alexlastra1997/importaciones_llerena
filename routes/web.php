@@ -95,7 +95,7 @@ Route::post('supply/add', [ProductSupplyController::class, 'updateStock'])->name
 //Roles de usuario
 
 Route::group(['middleware' => ['role:admin']], function () {
-    Route::resource('users', UserController::class);
+Route::resource('users', UserController::class);
 });
 
 Route::group(['middleware' => ['role:bodega']], function () {

@@ -57,8 +57,7 @@
 
     <a href="{{ route('cart.downloadInvoice', ['order' => $order->id]) }}" class="btn btn-primary">Download PDF</a>
     <a href="{{ route('products.index') }}" class="btn btn-secondary">Back to Products</a>
-                
-        
+       
         </div>    
     </div>
 </div>

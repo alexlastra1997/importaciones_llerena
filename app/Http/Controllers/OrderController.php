@@ -66,4 +66,6 @@ class OrderController extends Controller
 
         return $pdf->download('invoice.pdf');
     }
+
+    
 }
