@@ -67,5 +67,14 @@ class OrderController extends Controller
         return $pdf->download('invoice.pdf');
     }
 
+    public function downloadInvoice2(Order $order)
+    {
+        $order->load('items.product', 'cliente');
+
+        $pdf = Pdf::loadView('orders.invoice-pdf2', compact('order'));
+
+        return $pdf->download('invoice.pdf');
+    }
+
     
 }

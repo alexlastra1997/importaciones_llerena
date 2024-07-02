@@ -61,7 +61,7 @@
 </head>
 <body>
     <div class="invoice-box">
-        <h1>Invoice</h1>
+        <h1>Factura</h1>
         <h2>Client: {{ $order->cliente->nombre }}</h2>
         <p>Email: {{ $order->cliente->email }}</p>
         <p>Phone: {{ $order->cliente->telefono }}</p>

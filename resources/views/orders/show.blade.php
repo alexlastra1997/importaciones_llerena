@@ -119,11 +119,13 @@
 
                                     <div class="w-full grid sm:grid-cols-2  gap-4">
                                         <a href="{{ route('orders.downloadInvoice', ['order' => $order->id]) }}" class="w-full inline-flex justify-center rounded-lg  border border-blue-900 bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-gray-50 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 lg:w-auto">Factura</a>
-                                        <a href="{{ route('orders.index')}}" class="w-full inline-flex justify-center rounded-lg  border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 lg:w-auto">Volver a Ordenes</a>
+                                        <a href="{{ route('orders.downloadInvoice2', ['order' => $order->id]) }}" class="w-full inline-flex justify-center rounded-lg  border border-blue-900 bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-gray-50 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 lg:w-auto">Nota de Venta</a>
 
                                     </div>
                                     
                                     <div class="w-full grid grid-cols-1 gap-4">
+                                        <a href="{{ route('orders.index')}}" class="w-full inline-flex justify-center rounded-lg  border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 lg:w-auto">Volver a Ordenes</a>
+
                                         @role('admin')
                                             <form action="{{ route('orders.refund') }}" method="POST" class="w-full inline-flex justify-center rounded-lg  border border-red-700 bg-red-500 px-3 py-2 text-sm font-medium text-white hover:bg-gray-50 hover:text-red-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 lg:w-auto" >
                                                 @csrf
